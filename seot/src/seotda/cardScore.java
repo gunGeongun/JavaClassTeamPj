@@ -10,6 +10,7 @@ public class cardScore {
 	public static String compare(int first,int second) {
 		String score = "";
 		String[] num = {"¿µ","ÀÏ","ÀÌ","»ï","»ç","¿À","À°","Ä¥","ÆÈ","±¸"};
+		int defnum =(first + second)%10;
 		if (first == second) {
 			if(first == 10) {
 				score = "½Ê½Ö";
@@ -45,7 +46,27 @@ public class cardScore {
 			}else if(second ==10) {
 				score ="Àå»æ";
 			}else {
-				score = num[(first + second)%10] +"²ý";
+				if(defnum ==0) {
+					score = "0²ý";
+				}else if(defnum == 1) {
+					score = "1²ý";
+				}else if(defnum == 2) {
+					score = "2²ý";
+				}else if(defnum == 3) {
+					score = "3²ý";
+				}else if(defnum == 4) {
+					score = "4²ý";
+				}else if(defnum == 5) {
+					score = "5²ý";
+				}else if(defnum == 6) {
+					score = "6²ý";
+				}else if(defnum == 7) {
+					score = "7²ý";
+				}else if(defnum == 8) {
+					score = "8²ý";
+				}else if(defnum == 9) {
+					score = "9²ý";
+				}
 			}
 		}
 		else if(first ==4) {
@@ -56,7 +77,27 @@ public class cardScore {
 			}else if(second ==9) {
 				score ="±¸»ç";
 			}else {
-				score = num[(first + second)%10] +"²ý";
+				if(defnum ==0) {
+					score = "0²ý";
+				}else if(defnum == 1) {
+					score = "1²ý";
+				}else if(defnum == 2) {
+					score = "2²ý";
+				}else if(defnum == 3) {
+					score = "3²ý";
+				}else if(defnum == 4) {
+					score = "4²ý";
+				}else if(defnum == 5) {
+					score = "5²ý";
+				}else if(defnum == 6) {
+					score = "6²ý";
+				}else if(defnum == 7) {
+					score = "7²ý";
+				}else if(defnum == 8) {
+					score = "8²ý";
+				}else if(defnum == 9) {
+					score = "9²ý";
+				}
 			}
 		}
 		else if(first ==11) {
@@ -73,7 +114,27 @@ public class cardScore {
 			}else if(second ==10) {
 				score ="Àå»æ";
 			}else {
-				score = num[(first + second)%10] +"²ý";
+				if(defnum ==0) {
+					score = "0²ý";
+				}else if(defnum == 1) {
+					score = "1²ý";
+				}else if(defnum == 2) {
+					score = "2²ý";
+				}else if(defnum == 3) {
+					score = "3²ý";
+				}else if(defnum == 4) {
+					score = "4²ý";
+				}else if(defnum == 5) {
+					score = "5²ý";
+				}else if(defnum == 6) {
+					score = "6²ý";
+				}else if(defnum == 7) {
+					score = "7²ý";
+				}else if(defnum == 8) {
+					score = "8²ý";
+				}else if(defnum == 9) {
+					score = "9²ý";
+				}
 			}
 			
 		}else if(first == 33) {
@@ -96,7 +157,28 @@ public class cardScore {
 			}
 		}
 		else { //³ª¸ÓÁö Á·º¸µé
-			score = num[(first + second)%10] +"²ý";
+			if(defnum ==0) {
+				score = "0²ý";
+			}else if(defnum == 1) {
+				score = "1²ý";
+			}else if(defnum == 2) {
+				score = "2²ý";
+			}else if(defnum == 3) {
+				score = "3²ý";
+			}else if(defnum == 4) {
+				score = "4²ý";
+			}else if(defnum == 5) {
+				score = "5²ý";
+			}else if(defnum == 6) {
+				score = "6²ý";
+			}else if(defnum == 7) {
+				score = "7²ý";
+			}else if(defnum == 8) {
+				score = "8²ý";
+			}else if(defnum == 9) {
+				score = "9²ý";
+			}
+			
 		}
 		return score;
 	} 
@@ -143,7 +225,7 @@ public class cardScore {
 			prize = 19;
 		}else if(score =="7²ý") {
 			prize = 20;
-		}else if(score =="À°²ý") {
+		}else if(score =="6²ý") {
 			prize = 21;
 		}else if(score =="5²ý") {
 			prize = 22;
@@ -166,7 +248,7 @@ public class cardScore {
 	}
 	public static void main(String[] args) {
 		cardScore check = new cardScore();
-		int[] arr = {2,4};
+		int[] arr = {3,88};
 		String checkng = check.Score(arr);
 		System.out.println(checkng);
 		System.out.println(check.scorePrize(checkng));
