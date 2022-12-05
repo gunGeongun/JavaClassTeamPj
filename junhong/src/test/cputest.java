@@ -1,5 +1,7 @@
 package test;
 import CPUai.*;
+import Data.CPUstate;
+import seotda.*;
 import play.*;
 
 public class cputest {

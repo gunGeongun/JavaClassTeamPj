@@ -1,7 +1,7 @@
-package CPUai;
+package Data;
 
 public class CPUstate {
-	private int CPUMoney;
+	private int CPUMoney = 1000000;
 	public void setCPUMoney() {
 		this.CPUMoney = 1000000;
 	}

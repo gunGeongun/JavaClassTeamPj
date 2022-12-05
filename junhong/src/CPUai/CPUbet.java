@@ -2,6 +2,7 @@ package CPUai;
 import play.*;
 
 public class CPUbet {
+	private int playersHis = 0;
 	public int CPUplay(int money, int count, int cardnumOrpriority , int exbettedmoney, int totalbettedmoney, int[] bethistory) {
 		int Money = money;
 		int Count = count;
@@ -33,5 +34,11 @@ public class CPUbet {
 				return 0;
 			}else 
 				return bet.half(Money, TotalBettedMoney);
+	}
+	public void setplayersHis(int num) {
+		this.playersHis = num;
+	}
+	public int getplayersHis() {
+		return playersHis;
 	}
 }

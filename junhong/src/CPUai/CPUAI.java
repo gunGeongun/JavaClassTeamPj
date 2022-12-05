@@ -6,6 +6,7 @@ public class CPUAI {
 	int[] esti2 = {1, 2, 2, 2, 2, 2, 2, 3, 3, 3};
 	int[] esti3 = {1, 1, 2, 2, 2, 2, 2, 2, 2, 3};
 	Random ran = new Random();
+	//첫 배팅
 	public int oneCardSet(int one) {
 		int esti;
 		switch(one) {
@@ -29,6 +30,7 @@ public class CPUAI {
 			return esti2[esti];
 		}
 	}
+	//2번째 카드를 본 후 베팅
 	public int twoCardSet(int two, int jud) {
 		if(two < 15 || two == 31) {
 			int esti = ran.nextInt(10);
@@ -52,19 +54,27 @@ public class CPUAI {
 			return esti3[esti];
 		}
 	}
+	//판단 상대방의 하프가 많으면 땡잡이나 암행어사가 좋으니까 배팅을 올리는 것.
 	public int judgement(int[] input) {
 		int[] judg = input;
 		int countHalf = 0;
-		for (int i = 0; i < judg.length; i++) {
+		int countCall = 0;
+		for (int i = 0; i < 3; i++) {
 			if(judg[i] == 3) {
-				countHalf++;
+				countHalf += 1;
+			}else if(judg[i]==2) {
+				countCall += 1;
 			}
 		}
-		if(countHalf > 2) {
-			return 3;
-		}else if(countHalf != 0) {
-			return 2;
+		if(countHalf > 0) {
+			if(countCall == 2) {
+				return 2;
+			}else {
+				return 3;
+			}
 		}else
 			return 1;
 	}
+	
+	
 }

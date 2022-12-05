@@ -1,4 +1,3 @@
-package play;
 
 public class Betting {
 	public int half(int Money, int BettedMoney) {
@@ -20,6 +19,7 @@ public class Betting {
 		}
 	}
 	public int die() {
-		return 0;
+		return 4;
 	}
+	
 }
