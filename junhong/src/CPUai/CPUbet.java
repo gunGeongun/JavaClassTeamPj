@@ -2,7 +2,7 @@ package CPUai;
 import play.*;
 
 public class CPUbet {
-	private int playersHis = 0;
+	private int choice = 0;
 	public int CPUplay(int money, int count, int cardnumOrpriority , int exbettedmoney, int totalbettedmoney, int[] bethistory) {
 		int Money = money;
 		int Count = count;
@@ -14,31 +14,33 @@ public class CPUbet {
 		Betting bet = new Betting();
 		CPUAI ai = new CPUAI();
 		
+		
 		if(Count == 1) {
-			if(ai.oneCardSet(num) == 1) {
-				bet.die();
-				return 0;
-			}else if(ai.oneCardSet(num) == 2) {
+			this.choice = ai.oneCardSet(num);
+			if(choice == 1) {
+				return bet.die();
+			}else if(choice == 2) {
 				return bet.call(Money, ExBettedMoney);
-			}else if(ai.oneCardSet(num) != 3) {
+			}else if(choice != 3) {
 				return 0;
 			}else 
 				return bet.half(Money, TotalBettedMoney);
 		}else
-			if(ai.twoCardSet(num, ai.judgement(BetHistory)) == 1) {
-				bet.die();
-				return 0;
-			}else if(ai.twoCardSet(num, ai.judgement(BetHistory)) == 2) {
+			this.choice = ai.twoCardSet(num, ai.judgement(BetHistory));
+			if(choice == 1) {
+				return bet.die();
+			}else if(choice == 2) {
 				return bet.call(Money, ExBettedMoney);
-			}else if(ai.twoCardSet(num, ai.judgement(BetHistory)) != 3) {
-				return 0;
+			}else if(choice != 3) {
+				return bet.die();
 			}else 
 				return bet.half(Money, TotalBettedMoney);
+		
+		
 	}
-	public void setplayersHis(int num) {
-		this.playersHis = num;
+	
+	public int getchoice() {
+		return choice;
 	}
-	public int getplayersHis() {
-		return playersHis;
-	}
+	
 }
