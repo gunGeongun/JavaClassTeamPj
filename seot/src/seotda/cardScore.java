@@ -249,6 +249,7 @@ public class cardScore {
 	public static void main(String[] args) {
 		cardScore check = new cardScore();
 		int[] arr = {3,88};
+		
 		String checkng = check.Score(arr);
 		System.out.println(checkng);
 		System.out.println(check.scorePrize(checkng));

@@ -2,12 +2,11 @@ package seotda;
 import java.util.Arrays;
 
 public class Test {
-	
-	public static void main(String[] args) {
+	public static void gameStart() {
 		final int cardSize = 2;
 		int[] user = new int[cardSize];
 		int[] com = new int[cardSize];
-		
+
 		Card deck = new Card();
 		Shuffle shuf = new Shuffle();
 		cardScore score = new cardScore();
@@ -28,6 +27,16 @@ public class Test {
 		System.out.println("Player 패 점수 " + userScorePrize);
 		System.out.println("Computer 패 점수 " + comScorePrize);
 		System.out.println("결과는 " + gameResult);
+		if (gameResult =="무승부 재경기") {
+			System.out.println("무승부 재경기합니다.");
+			gameStart();
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		gameStart();
 		
 	
 
