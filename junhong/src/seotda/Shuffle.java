@@ -2,7 +2,7 @@ package seotda;
 
 import java.util.Random;
 public class Shuffle {
-	final public static int CardSize = 20; //패의 총 갯수 20개
+	final public static int CardSize = 20; 
 	
 	public static void cardShuffle(int array[]) {
 	        Random rd = new Random();

@@ -2,11 +2,11 @@ package CPUai;
 import java.util.Random;
 
 public class CPUAI {
-	int[] esti1 = {2, 2, 2, 2, 3, 3, 3, 3, 3, 3};
-	int[] esti2 = {1, 2, 2, 2, 2, 2, 2, 3, 3, 3};
-	int[] esti3 = {1, 1, 2, 2, 2, 2, 2, 2, 2, 3};
+	int[] esti1 = {2, 2, 2, 3, 3, 3, 3, 3, 3, 3};
+	int[] esti2 = {1, 2, 2, 2, 2, 3, 3, 3, 3, 3};
+	int[] esti3 = {1, 1, 2, 2, 2, 2, 2, 2, 3, 3};
 	Random ran = new Random();
-	//Ã¹ ¹èÆÃ
+	//Ã¹ ï¿½ï¿½ï¿½ï¿½
 	public int oneCardSet(int one) {
 		int esti;
 		switch(one) {
@@ -30,7 +30,7 @@ public class CPUAI {
 			return esti2[esti];
 		}
 	}
-	//2¹øÂ° Ä«µå¸¦ º» ÈÄ º£ÆÃ
+	//2ï¿½ï¿½Â° Ä«ï¿½å¸¦ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int twoCardSet(int two, int jud) {
 		if(two < 15 || two == 31) {
 			int esti = ran.nextInt(10);
@@ -54,7 +54,7 @@ public class CPUAI {
 			return esti3[esti];
 		}
 	}
-	//ÆÇ´Ü »ó´ë¹æÀÇ ÇÏÇÁ°¡ ¸¹À¸¸é ¶¯ÀâÀÌ³ª ¾ÏÇà¾î»ç°¡ ÁÁÀ¸´Ï±î ¹èÆÃÀ» ¿Ã¸®´Â °Í.
+	//ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	public int judgement(int[] input) {
 		int[] judg = input;
 		int countHalf = 0;

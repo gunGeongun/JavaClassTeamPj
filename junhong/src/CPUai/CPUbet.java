@@ -14,28 +14,26 @@ public class CPUbet {
 		Betting bet = new Betting();
 		CPUAI ai = new CPUAI();
 		
-		
-		if(Count == 1) {
-			this.choice = ai.oneCardSet(num);
-			if(choice == 1) {
-				return bet.die();
-			}else if(choice == 2) {
-				return bet.call(Money, ExBettedMoney);
-			}else if(choice != 3) {
-				return 0;
-			}else 
-				return bet.half(Money, TotalBettedMoney);
-		}else
-			this.choice = ai.twoCardSet(num, ai.judgement(BetHistory));
-			if(choice == 1) {
-				return bet.die();
-			}else if(choice == 2) {
-				return bet.call(Money, ExBettedMoney);
-			}else if(choice != 3) {
-				return bet.die();
-			}else 
-				return bet.half(Money, TotalBettedMoney);
-		
+		if(Money != 0) {
+			if(Count == 1) {
+				this.choice = ai.oneCardSet(num);
+				if(choice == 1) {
+					return bet.die();
+				}else if(choice == 2) {
+					return bet.call(Money, ExBettedMoney);
+				}else 
+					return bet.half(Money, TotalBettedMoney);
+			}else
+				this.choice = ai.twoCardSet(num, ai.judgement(BetHistory));
+				if(choice == 1) {
+					return bet.die();
+				}else if(choice == 2) {
+					return bet.call(Money, ExBettedMoney);
+				}else 
+					return bet.half(Money, TotalBettedMoney);
+		}else {
+			return bet.call(Money, ExBettedMoney);
+		}
 		
 	}
 	

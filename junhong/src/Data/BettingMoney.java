@@ -1,11 +1,13 @@
 package Data;
 
 public class BettingMoney {
-	private int BetMoney = 1000;//ÃÑ º£ÅÁµÈ µ·.
-	private int BetCycle;//Ä«µå¸¦ °¡Áø ¼ö.
-	private int betHistory = 0;//ÀüÆÇ ÀÌ±ä»ç¶÷ Ã£±â.
-	private int[] playersHis = {0, 0, 0};// ÇÃ·¹ÀÌ¾îÀÇ ¹èÆÃ±â·Ï.
-	private int exBetted = 500;//ÀÌÀü¿¡ ¹èÆÃÇÑ µ·
+	private int BetMoney = 1000;//å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™.
+	private int BetCycle;//ì¹´å ì²ë¥¼ å ì™ì˜™å ì™ì˜™ å ì™ì˜™.
+	private int betHistory = 0;//å ì™ì˜™å ì™ì˜™ å ì‹±ê¹ì˜™å ì™ì˜™ ì°¾å ì™ì˜™.
+	private int[] playersHis = {0, 0, 0};// å ì‹œë¤„ì˜™å ì‹±ì–µì˜™å ì™ì˜™ å ì™ì˜™å ì‹œê¹ì˜™å ï¿½.
+	private int exBetted = 500;//å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™
+	private int rematchhis = 0;
+	private int rematchnum = 0;
 	
 	public BettingMoney() {
 		this.BetMoney = 1000;
@@ -52,9 +54,19 @@ public class BettingMoney {
 	public int getexBetted() {
 		return exBetted;
 	}
+	public void setrematchp() {
+		this.rematchhis = 1;
+	}
+	public void setrematchC() {
+		this.rematchhis = 0;
+	}
+	public int getrematchhis() {
+		return rematchhis;
+	}
 	public void resetPoint() {
 		this.BetCycle = 0;
 		this.exBetted = 500;
 		this.playersHis = new int[] {0,0,0};
+		this.BetMoney = 1000;
 	}
 }
