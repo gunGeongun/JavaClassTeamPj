@@ -3,6 +3,8 @@ package seotda;
 public class winner {
 	public static String result(int user,int com) {
 		String result = "";
+		if(user ==com) {
+			result = "무승부 재경기";		}
 		if(user>com) {
 			if(user==999 && com >11) {
 				result = "구사 재경기";
@@ -28,10 +30,8 @@ public class winner {
 	}
 
 	public static void main(String[] args) {
-		winner win = new winner();
-		System.out.println(win.result(23,1));
+		
 
 
 	}
-
 }

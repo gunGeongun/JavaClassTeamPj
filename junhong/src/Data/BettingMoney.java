@@ -1,11 +1,11 @@
 package Data;
 
 public class BettingMoney {
-	private int BetMoney = 1000;//ÃÑ º£ÅÁµÈ µ·.
-	private int BetCycle;//Ä«µå¸¦ °¡Áø ¼ö.
-	private int betHistory = 0;//ÀüÆÇ ÀÌ±ä»ç¶÷ Ã£±â.
-	private int[] playersHis = {0, 0, 0};// ÇÃ·¹ÀÌ¾îÀÇ ¹èÆÃ±â·Ï.
-	private int exBetted = 500;//ÀÌÀü¿¡ ¹èÆÃÇÑ µ·
+	private int BetMoney = 1000;//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+	private int BetCycle;//Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+	private int betHistory = 0;//ï¿½ï¿½ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½.
+	private int[] playersHis = {0, 0, 0};// ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ï¿½.
+	private int exBetted = 500;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	
 	public BettingMoney() {
 		this.BetMoney = 1000;
@@ -56,5 +56,6 @@ public class BettingMoney {
 		this.BetCycle = 0;
 		this.exBetted = 500;
 		this.playersHis = new int[] {0,0,0};
+		this.BetMoney = 1000;
 	}
 }

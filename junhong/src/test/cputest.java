@@ -10,7 +10,8 @@ public class cputest {
 		Cstate.setCPUMoney();
 		int[] his = {3, 2, 3};
 		CPUbet Cbet = new CPUbet();
-		int CPUmoney = Cbet.CPUplay(Cstate.getCPUMoney(), 1, 1, 100, 300, his);
+		int CPUmoney = Cbet.CPUplay(Cstate.getCPUMoney(), 1, 1, 500, 2000, his);
 		System.out.println(CPUmoney);
+		
 	}
 }

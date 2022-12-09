@@ -9,7 +9,6 @@ public class cardScore {
 	
 	public static String compare(int first,int second) {
 		String score = "";
-		String[] num = {"영","일","이","삼","사","오","육","칠","팔","구"};
 		int defnum =(first + second)%10;
 		if (first == second) {
 			if(first == 10) {
@@ -21,7 +20,7 @@ public class cardScore {
 			}else if(first == 7) {
 				score = "칠쌍";
 			}else if(first == 6) {
-				score = "욱쌍";
+				score = "육쌍";
 			}else if(first == 5) {
 				score = "오쌍";
 			}else if(first == 4) {
@@ -247,11 +246,7 @@ public class cardScore {
 		return prize;
 	}
 	public static void main(String[] args) {
-		cardScore check = new cardScore();
-		int[] arr = {3,88};
-		String checkng = check.Score(arr);
-		System.out.println(checkng);
-		System.out.println(check.scorePrize(checkng));
+		
 	}
 
 }
