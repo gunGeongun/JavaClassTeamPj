@@ -6,12 +6,14 @@ import play.*;
 
 public class cputest {
 	public static void main(String[] args) {
-		CPUstate Cstate = new CPUstate();
-		Cstate.setCPUMoney();
-		int[] his = {3, 2, 3};
-		CPUbet Cbet = new CPUbet();
-		int CPUmoney = Cbet.CPUplay(Cstate.getCPUMoney(), 1, 1, 500, 2000, his);
-		System.out.println(CPUmoney);
-		
+		for (int i = 0; i<5 ; i++) {
+			if(i == 3) {
+				System.out.println(i);
+				continue;
+			}else {
+				System.out.println(i+1);
+			}
+			System.out.println(i);
+		}
 	}
 }

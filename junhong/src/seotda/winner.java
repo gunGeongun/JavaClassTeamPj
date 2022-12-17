@@ -1,37 +1,39 @@
 package seotda;
 
 public class winner {
-	public static String result(int user,int com) {
-		String result = "";
-		if(user ==com) {
-			result = "ë¬´ìŠ¹ë¶€ ì¬ê²½ê¸°";		}
-		if(user>com) {
-			if(user==999 && com >11) {
-				result = "êµ¬ì‚¬ ì¬ê²½ê¸°";
-				
-			}else if(user==1001 && com>3) {
-				result = "ë©êµ¬ì‚¬ ì¬ê²½ê¸°";
-			}
-			else {
-				result = "ì»´í“¨í„°ì˜ ìŠ¹ë¦¬";
-			}
-		}else if(user<com) {
-			if(com==999 && user >11) {
-				result = "êµ¬ì‚¬ ì¬ê²½ê¸°";
-				
-			}else if(com==1001 && user>3) {
-				result = "ë©êµ¬ì‚¬ ì¬ê²½ê¸°";
-			}
-			else {
-				result = "í”Œë ˆì´ì–´ì˜ ìŠ¹ë¦¬";
-			}
-		}
-		return result;
-	}
-
-	public static void main(String[] args) {
-		
-
-
-	}
+   public static int result(int user,int com) {
+      int result = 0;
+      if(user ==com) {
+         result = 3; }//"¹«½ÂºÎ Àç°æ±â"; 
+      if(user>com) {
+         if(user==999 && com >11) {
+            result = 4; //"±¸»ç Àç°æ±â";
+            
+         }else if(user==1001 && com>3) {
+            result = 5; // "¸Û±¸»ç Àç°æ±â";
+         }else if (user == 777 && (com >= 4 && com <= 12)) {  //¶¯ÀâÀÌ
+        	 result = 6; //"»ç¿ëÀÚÀÇ ¶¯ÀâÀÌ ½Â¸®";
+         }else if ( user==888 && com ==2) { //¾ÏÇà¾î»ç
+        	 result = 7; //"»ç¿ëÀÚÀÇ ¾ÏÇà¾î»ç ½Â¸®";
+         }
+         else {
+            result = 1;//"ÄÄÇ»ÅÍÀÇ ½Â¸®";
+         }
+      }else if(user<com) {
+         if(com==999 && user >11) {
+            result = 4; //"±¸»ç Àç°æ±â";
+            
+         }else if(com==1001 && user>3) {
+            result = 5; //"¸Û±¸»ç Àç°æ±â";
+         }else if (com == 777 && ( user>= 4 &&  user<= 12)) {  //¶¯ÀâÀÌ
+        	 result = 6; //"ÄÄÇ»ÅÍÀÇ ¶¯ÀâÀÌ ½Â¸®";
+         }else if (com ==888 && user ==2) { //¾ÏÇà¾î»ç
+        	 result = 7; //"ÄÄÇ»ÅÍÀÇ ¾ÏÇà¾î»ç ½Â¸®";
+         }
+         else {
+            result = 2;//"ÇÃ·¹ÀÌ¾îÀÇ ½Â¸®";
+         }
+      }
+      return result;
+   }
 }

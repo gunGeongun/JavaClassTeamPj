@@ -18,153 +18,180 @@ public class playTest {
       ComMoney.setCPUMoney();
       playerMoney.setPlayerMoney(); 
       
-      //ë‘˜ ì¤‘ í•˜ë‚˜ê°€ íŒŒì‚°í•˜ë©´ ë.
+      //µÑ Áß ÇÏ³ª°¡ ÆÄ»êÇÏ¸é ³¡.
       while(ComMoney.getCPUMoney() != 0 && playerMoney.getPlayerMoney() != 0) {
-    	  final int cardSize = 2;
-    	  int[] user = new int[cardSize];
-    	  int[] com = new int[cardSize];
-    	  int[] shuffleDeck = Card.card;
-    	  Shuffle.cardShuffle(shuffleDeck); // ì¹´ë“œ ì…”í”Œ
-    	  CardDivision.Div(shuffleDeck, user, com); //ì¹´ë“œ ë¶„ë°°
-    	  String userScore = cardScore.Score(user); // í”Œë ˆì´ì–´ ì¹´ë“œ ì¡±ë³´ í™•ì¸
-    	  String comScore = cardScore.Score(com); //ì»´í“¨í„° ì¹´ë“œ ì¡±ë³´ í™•ì¸
-    	  int userScorePrize = cardScore.scorePrize(userScore); // í”Œë ˆì´ì–´ ì ìˆ˜ ê°’
-    	  int comScorePrize = cardScore.scorePrize(comScore); //ì»´í“¨í„° ì ìˆ˜ ê°’
-    	  String gameResult = winner.result(userScorePrize,comScorePrize); // ê²Œì„ ê²°ê³¼
-    	  System.out.println("Player ì¹´ë“œ íŒ¨ " + Arrays.toString(user));
-    	  System.out.println("Computer ì¹´ë“œ íŒ¨ " + Arrays.toString(com));
-    	  System.out.println("Player ì¡±ë³´ " + userScore);
-    	  System.out.println("Computer ì¡±ë³´" + comScore);
-    	  System.out.println("Player íŒ¨ ì ìˆ˜ " + userScorePrize);
-    	  System.out.println("Computer íŒ¨ ì ìˆ˜ " + comScorePrize);
-    	  System.out.println("ê²°ê³¼ëŠ” " + gameResult);
-
-          System.out.println("í”Œë ˆì´ì–´ì˜ ì²«ë²ˆì§¸ ì¹´ë“œëŠ” " + user[0]);
+         final int cardSize = 2;
+         int[] user = new int[cardSize];
+         int[] com = new int[cardSize];
+         int[] shuffleDeck = Card.card;
+         Shuffle.cardShuffle(shuffleDeck); // Ä«µå ¼ÅÇÃ
+         CardDivision.Div(shuffleDeck, user, com); //Ä«µå ºĞ¹è
+         String userScore = cardScore.Score(user); // ÇÃ·¹ÀÌ¾î Ä«µå Á·º¸ È®ÀÎ
+         String comScore = cardScore.Score(com); //ÄÄÇ»ÅÍ Ä«µå Á·º¸ È®ÀÎ
+         int userScorePrize = cardScore.scorePrize(userScore); // ÇÃ·¹ÀÌ¾î Á¡¼ö °ª
+         int comScorePrize = cardScore.scorePrize(comScore); //ÄÄÇ»ÅÍ Á¡¼ö °ª
+         int gameResult = winner.result(userScorePrize,comScorePrize); // °ÔÀÓ °á°ú
+         System.out.println("Player Ä«µå ÆĞ " + Arrays.toString(user));
+         System.out.println("Computer Ä«µå ÆĞ " + Arrays.toString(com));
+         System.out.println("Player Á·º¸ " + userScore);
+         System.out.println("Computer Á·º¸" + comScore);
+         System.out.println("Player ÆĞ Á¡¼ö " + userScorePrize);
+         System.out.println("Computer ÆĞ Á¡¼ö " + comScorePrize);
+         System.out.println("°á°ú´Â " + gameResult);
+         System.out.println("ÇÃ·¹ÀÌ¾îÀÇ Ã¹¹øÂ° Ä«µå´Â " + user[0]);
+         
+         playerMoney.losePlayerMoney(betMoney.getexBetted());
+         ComMoney.loseCPUMoney(betMoney.getexBetted());
           
-
-          playerMoney.losePlayerMoney(betMoney.getexBetted());
-          ComMoney.loseCPUMoney(betMoney.getexBetted());
-          
-         //ëª¨ë‘ ë°°íŒ…ì™„ë£Œí•˜ê±°ë‚˜ ë‘˜ ì¤‘ í•˜ë‚˜ê°€ ì£½ìœ¼ë©´ ë.
+         //¸ğµÎ ¹èÆÃ¿Ï·áÇÏ°Å³ª µÑ Áß ÇÏ³ª°¡ Á×À¸¸é ³¡.
          while(betMoney.getCycle() < 3 && ComMoney.getIsdie() != 1 && playerMoney.getIsdie() != 1) {
-        	 
-            //ë‘˜ ë‹¤ ë°°íŒ…í•˜ë©´ ëë‚¨.
-             
-            while(playerMoney.getIsCalled() != 1 && ComMoney.getIsCalled() != 1) {
-               //ì „ì— ì´ê¸´ ì‚¬ëŒë¶€í„° ë°°íŒ…ì‹œì‘
+            //µÑ ´Ù ¹èÆÃÇÏ¸é ³¡³².
+            while( !(playerMoney.getIsCalled() == 1 && ComMoney.getIsCalled() == 1) && playerMoney.getIsdie() == 0 && ComMoney.getIsdie() == 0) {
+               //Àü¿¡ ÀÌ±ä »ç¶÷ºÎÅÍ ¹èÆÃ½ÃÀÛ
                if(betMoney.getHis() == 0) {
-                  //ì»´í“¨í„° ë°°íŒ…
+                  //ÄÄÇ»ÅÍ ¹èÆÃ
                   int CPUbettedMoney = CPUBet.CPUplay(ComMoney.getCPUMoney(), betMoney.getCycle(), comScorePrize, betMoney.getexBetted(), betMoney.getMoney(), betMoney.getplayerHis());
-                  //ì»´í“¨í„°ê°€ ì£½ì—ˆëŠ”ì§€ íŒë‹¨.
+                  //ÄÄÇ»ÅÍ°¡ Á×¾ú´ÂÁö ÆÇ´Ü.
+                  System.out.println("ÄÄÇ»ÅÍÀÇ ¼±ÅÃ"+CPUBet.getchoice());
                   if(CPUbettedMoney == 0) {
                      ComMoney.setIsdie(1);
                      continue;
-                  }else if(CPUbettedMoney == betMoney.getexBetted()) {//ì½œì¸ì§€ íŒë‹¨.
-                     betMoney.setexBetted(CPUbettedMoney);//ì „ì— ë°°íŒ…í•œ ëˆ ì €ì¥
-                     ComMoney.loseCPUMoney(CPUbettedMoney);//ë°°íŒ…ì„ í–ˆìœ¼ë‹ˆ ê·¸ ëˆì„ ìì‚°ì—ì„œ ì œì™¸
+                  }else if(CPUbettedMoney == betMoney.getexBetted()) {//ÄİÀÎÁö ÆÇ´Ü.
+                     betMoney.setexBetted(CPUbettedMoney);//Àü¿¡ ¹èÆÃÇÑ µ· ÀúÀå
+                     ComMoney.loseCPUMoney(CPUbettedMoney);//¹èÆÃÀ» ÇßÀ¸´Ï ±× µ·À» ÀÚ»ê¿¡¼­ Á¦¿Ü
                      betMoney.addMoney(CPUbettedMoney);
                      ComMoney.setIsCalled(1);
                   }else {
-                     betMoney.setexBetted(CPUbettedMoney);//ì „ì— ë°°íŒ…í•œ ëˆ ì €ì¥
-                     ComMoney.loseCPUMoney(CPUbettedMoney);//ë°°íŒ…ì„ í–ˆìœ¼ë‹ˆ ê·¸ ëˆì„ ìì‚°ì—ì„œ ì œì™¸
+                     betMoney.setexBetted(CPUbettedMoney);//Àü¿¡ ¹èÆÃÇÑ µ· ÀúÀå
+                     ComMoney.loseCPUMoney(CPUbettedMoney);//¹èÆÃÀ» ÇßÀ¸´Ï ±× µ·À» ÀÚ»ê¿¡¼­ Á¦¿Ü
                      betMoney.addMoney(CPUbettedMoney);
                      ComMoney.setIsCalled(0);
                   }
                   betMoney.setHistory(1);
+                  		//µÑ´Ù ÄİÇß´ÂÁö ÆÇ´Ü.
+                  if(playerMoney.getIsCalled() == 1 && ComMoney.getIsCalled() == 1) {
+                      continue;
+                   }
                }
-               System.out.println("ë°°íŒ…í•˜ì„¸ìš”. 1: ë‹¤ì´, 2: ì½œ, 3:í•˜í”„");
-               int playersChoice = scan.nextInt();//í”Œë ˆì´ì–´ì˜ í–‰ë™
-               //í”Œë ˆì´ì–´ ë°°íŒ….
-               int playerBettedMoney = playerBet.playersBet(playersChoice, playerMoney.getPlayerMoney(), betMoney.getMoney(), betMoney.getexBetted());
-               //í”Œë ˆì´ì–´ì˜ ë‹¤ì´ íŒë‹¨.
+               System.out.println("¹èÆÃÇÏ¼¼¿ä. 1: ´ÙÀÌ, 2: Äİ, 3:ÇÏÇÁ");
+               int playersChoice = scan.nextInt();//ÇÃ·¹ÀÌ¾îÀÇ Çàµ¿
+               //ÇÃ·¹ÀÌ¾î ¹èÆÃ.
                
+               int playerBettedMoney = playerBet.playersBet(playersChoice, playerMoney.getPlayerMoney(), betMoney.getMoney(), betMoney.getexBetted());
+               //ÇÃ·¹ÀÌ¾îÀÇ ´ÙÀÌ ÆÇ´Ü.
+               System.out.println("ÇÃ·¹ÀÌ¾îÀÇ ¼±ÅÃ" + playersChoice);
                if(playerBettedMoney == 0) {
                   playerMoney.setIsdie(1);
                   continue;
                }else if(playerBettedMoney == betMoney.getexBetted()) {
-                  betMoney.setexBetted(playerBettedMoney);//ë² íŒ…í•œëˆ ì €ì¥
-                  playerMoney.losePlayerMoney(playerBettedMoney);//ë°°íŒ…ëœ ëˆ ì œì™¸
+                  betMoney.setexBetted(playerBettedMoney);//º£ÆÃÇÑµ· ÀúÀå
+                  playerMoney.losePlayerMoney(playerBettedMoney);//¹èÆÃµÈ µ· Á¦¿Ü
                   betMoney.addMoney(playerBettedMoney);
                   playerMoney.setIsCalled(1);
                   
-               }else {
-                  betMoney.setexBetted(playerBettedMoney);//ë² íŒ…í•œëˆ ì €ì¥
-                  playerMoney.losePlayerMoney(playerBettedMoney);//ë°°íŒ…ëœ ëˆ ì œì™¸
+               }else if(playerBettedMoney > betMoney.getexBetted()) {
+                  betMoney.setexBetted(playerBettedMoney);//º£ÆÃÇÑµ· ÀúÀå
+                  playerMoney.losePlayerMoney(playerBettedMoney);//¹èÆÃµÈ µ· Á¦¿Ü
                   betMoney.addMoney(playerBettedMoney);
                   playerMoney.setIsCalled(0);
                }
+               
+               //ÇÃ·¹ÀÌ¾î°¡ µ·ÀÌ ¾øÀ¸¸é Äİ·Î º¯È¯.
                if(playerMoney.getPlayerMoney() == 0) {
-            	   playerMoney.setIsCalled(1);
+                  playerMoney.setIsCalled(1);
                }
-               System.out.println("í”Œë ˆì´ì–´ ëˆ "+playerMoney.getPlayerMoney());
-               System.out.println("ì»´í“¨í„° ëˆ" +ComMoney.getCPUMoney());
-               System.out.println("ì»´í“¨í„°ì˜ ì„ íƒ"+CPUBet.getchoice());
-               //ë‘˜ë‹¤ ì½œí–ˆëŠ”ì§€ íŒë‹¨.
+               //µÑ´Ù ÄİÇß´ÂÁö ÆÇ´Ü.
                if(playerMoney.getIsCalled() == 1 && ComMoney.getIsCalled() == 1) {
                   continue;
                }
                int CPUbettedMoney = CPUBet.CPUplay(ComMoney.getCPUMoney(), betMoney.getCycle(), comScorePrize, betMoney.getexBetted(), betMoney.getMoney(), betMoney.getplayerHis());
+
+               System.out.println("ÄÄÇ»ÅÍÀÇ ¼±ÅÃ"+CPUBet.getchoice());
                if(CPUbettedMoney == 0) {
                   ComMoney.setIsdie(1);
                   continue;
-               }else if(CPUbettedMoney == betMoney.getexBetted()) {//ì½œì¸ì§€ íŒë‹¨.
-                  betMoney.setexBetted(CPUbettedMoney);//ì „ì— ë°°íŒ…í•œ ëˆ ì €ì¥
-                  ComMoney.loseCPUMoney(CPUbettedMoney);//ë°°íŒ…ì„ í–ˆìœ¼ë‹ˆ ê·¸ ëˆì„ ìì‚°ì—ì„œ ì œì™¸
+               }else if(CPUbettedMoney == betMoney.getexBetted()) {//ÄİÀÎÁö ÆÇ´Ü.
+                  betMoney.setexBetted(CPUbettedMoney);//Àü¿¡ ¹èÆÃÇÑ µ· ÀúÀå
+                  ComMoney.loseCPUMoney(CPUbettedMoney);//¹èÆÃÀ» ÇßÀ¸´Ï ±× µ·À» ÀÚ»ê¿¡¼­ Á¦¿Ü
                   betMoney.addMoney(CPUbettedMoney);
                   ComMoney.setIsCalled(1);
                }else {
-                  betMoney.setexBetted(CPUbettedMoney);//ì „ì— ë°°íŒ…í•œ ëˆ ì €ì¥
-                  ComMoney.loseCPUMoney(CPUbettedMoney);//ë°°íŒ…ì„ í–ˆìœ¼ë‹ˆ ê·¸ ëˆì„ ìì‚°ì—ì„œ ì œì™¸
+                  betMoney.setexBetted(CPUbettedMoney);//Àü¿¡ ¹èÆÃÇÑ µ· ÀúÀå
+                  ComMoney.loseCPUMoney(CPUbettedMoney);//¹èÆÃÀ» ÇßÀ¸´Ï ±× µ·À» ÀÚ»ê¿¡¼­ Á¦¿Ü
                   betMoney.addMoney(CPUbettedMoney);
                   ComMoney.setIsCalled(0);
                }
                if(ComMoney.getCPUMoney()==0) {
-            	   ComMoney.setIsCalled(1);
-               }
+                  ComMoney.setIsCalled(1);
+               }//µÑ´Ù ÄİÇß´ÂÁö ÆÇ´Ü.
+               if(playerMoney.getIsCalled() == 1 && ComMoney.getIsCalled() == 1) {
+                   continue;
+                }
+               System.out.println("ÇÃ·¹ÀÌ¾î µ· "+playerMoney.getPlayerMoney());
+               System.out.println("ÄÄÇ»ÅÍ µ·" +ComMoney.getCPUMoney());
+               System.out.println("º£ÆÃ ¸Ó´Ï"+betMoney.getMoney());
 
             }
             if(playerMoney.getIsdie() == 1 || ComMoney.getIsdie() == 1) {
                continue;
+            }else {	
+	            betMoney.addCycle();
+	            ComMoney.resetPoint();
+	            playerMoney.resetPoint();	
+	            System.out.println("ÇÃ·¹ÀÌ¾î´Â "+user[0] + user[1]);
+	            
             }
-            betMoney.addCycle();
-            ComMoney.resetPoint();
-            playerMoney.resetPoint();
-         }
-        
-         //ë‹¤ì´í–ˆì„ë•Œ, íŒëˆì„ ê°€ì ¸ê°€ëŠ” ì½”ë“œ.
-         System.out.println("í”Œë ˆì´ì–´ëŠ” "+user[0] + user[1]);
+         }     
+         //´ÙÀÌÇßÀ»¶§, ÆÇµ·À» °¡Á®°¡´Â ÄÚµå.
          if(ComMoney.getIsdie() == 1) {
-            System.out.println("í”Œë ˆì´ì–´ ìŠ¹");
+            System.out.println(gameResult);
             playerMoney.gainPlayerMoney(betMoney.getMoney());
-            betMoney.setHistory(1);            
+            betMoney.setHistory(1);        
+            betMoney.setrematchp();
          }else if(playerMoney.getIsdie() == 1) {
-             System.out.println("ì»´í“¨í„° ìŠ¹");
+             System.out.println("ÄÄÇ»ÅÍ ½Â");
              ComMoney.gainCPUMoney(betMoney.getMoney());
-             betMoney.setHistory(0);
-         }else if(userScorePrize < comScorePrize) {
-        	 System.out.println("í”Œë ˆì´ì–´ ìŠ¹");
-             playerMoney.gainPlayerMoney(betMoney.getMoney());
+             betMoney.setHistory(0);        
+             betMoney.setrematchC();       
+             
+         }else if(gameResult==3) {
+        	 System.out.println("¹«½ÂºÎ Àç°æ±â");
              betMoney.setHistory(1);
-         }else if(userScorePrize > comScorePrize) {
-        	 System.out.println("ì»´í“¨í„° ìŠ¹");
-             ComMoney.gainCPUMoney(betMoney.getMoney());
-             betMoney.setHistory(0);
+             continue;
+         }else if(gameResult==4) {
+        	 System.out.println("±¸»ç Àç°æ±â");
+        	 continue;        	 
+         }else if(gameResult==5) {
+        	 System.out.println("¸Û±¸»ç Àç°æ±â");
+        	 continue;    
+         }else if(gameResult==6) {
+        	 System.out.println("¾ÏÇà¾î»ç");
+        	 continue;    
+        	 
          }
-         else {
-        	 System.out.println("ì»´í“¨í„° ìŠ¹");
+         else if(gameResult==2) {
+            System.out.println("ÇÃ·¹ÀÌ¾î ½Â");
+            playerMoney.gainPlayerMoney(betMoney.getMoney());
+            betMoney.setHistory(1);        
+            betMoney.setrematchp();
+         }else if(gameResult==1) {
+            System.out.println("ÄÄÇ»ÅÍ ½Â");
              ComMoney.gainCPUMoney(betMoney.getMoney());
-             betMoney.setHistory(0);  
+             betMoney.setHistory(0);        
+             betMoney.setrematchC();
          }
-         System.out.println("ìµœì¢… í”Œë ˆì´ì–´ ëˆ "+playerMoney.getPlayerMoney());
-         System.out.println("ìµœì¢… ì»´í“¨í„° ëˆ" +ComMoney.getCPUMoney());
+         
+         System.out.println("ÃÖÁ¾ ÇÃ·¹ÀÌ¾î µ· "+playerMoney.getPlayerMoney());
+         System.out.println("ÃÖÁ¾ ÄÄÇ»ÅÍ µ·" +ComMoney.getCPUMoney());
          System.out.println(playerMoney.getPlayerMoney()+ComMoney.getCPUMoney());
+         
          ComMoney.resetPoint();
          playerMoney.resetPoint();
          betMoney.resetPoint();
          
          
       }
-      System.out.println("ê²Œì„ì´ ëë‚¬ìŠµë‹ˆë‹¤.");
+      System.out.println("°ÔÀÓÀÌ ³¡³µ½À´Ï´Ù.");
       scan.close();
    }
 }
